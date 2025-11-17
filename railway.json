@@ -4,7 +4,7 @@
     "builder": "RAILPACK"
   },
   "deploy": {
-    "startCommand": "echo 'Checking build assets...' && ls -la public/build/ 2>/dev/null || (echo 'Build directory empty or missing' && ls -la public/ | head -20) && php artisan config:clear && php artisan cache:clear && php artisan migrate --force && (php artisan db:seed --force || echo 'Seeding skipped') && php artisan config:cache && php artisan route:cache && php artisan view:cache && php -S 0.0.0.0:$PORT -t public"
+    "startCommand": "php artisan view:clear && php artisan config:clear && php artisan cache:clear && php artisan migrate --force && (php artisan db:seed --force || echo 'Seeding skipped') && php artisan config:cache && php artisan route:cache && php artisan view:cache && php -S 0.0.0.0:$PORT -t public"
   }
 }
 
