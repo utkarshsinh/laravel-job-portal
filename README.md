@@ -22,4 +22,8 @@ This is a job portal application built using Laravel 11 and PHP 8.3. It allows e
 
 * Laravel 11
 * PHP 8.3
-* MySQL (or any other database supported by Laravel)
+* MySQL or PostgreSQL
+
+## Deployment
+
+For a quick deploy with minimal setup, see `DEPLOYMENT.md` (Railway and Render instructions). The app expects a database and an `APP_KEY`.
