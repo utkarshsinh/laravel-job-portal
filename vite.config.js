@@ -9,13 +9,8 @@ export default defineConfig({
         }),
     ],
     build: {
-        manifest: 'manifest.json',
+        manifest: true,
         outDir: 'public/build',
         emptyOutDir: true,
-        rollupOptions: {
-            output: {
-                manifest: 'manifest.json',
-            },
-        },
     },
 });
