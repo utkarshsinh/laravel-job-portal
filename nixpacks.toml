@@ -6,12 +6,9 @@ cmds = [
   "composer install --no-dev --prefer-dist --optimize-autoloader",
   "php artisan storage:link || true",
   "npm ci",
-  "npm run build",
-  "php artisan config:cache || true",
-  "php artisan route:cache || true",
-  "php artisan view:cache || true"
+  "npm run build"
 ]
 
 [start]
-cmd = "php artisan migrate --force && (php artisan db:seed --force || true) && php -S 0.0.0.0:$PORT -t public"
+cmd = "php artisan config:clear || true && php artisan cache:clear || true && php artisan migrate --force && (php artisan db:seed --force || echo 'Seeding skipped or already done') && php artisan config:cache && php artisan route:cache && php artisan view:cache && php -S 0.0.0.0:$PORT -t public"
 
