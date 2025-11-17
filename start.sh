@@ -1,8 +1,16 @@
 #!/bin/bash
 
-echo "Clearing caches..."
+echo "Clearing ALL caches (optimize:clear)..."
+php artisan optimize:clear || true
+
+echo "Clearing individual caches..."
+php artisan view:clear || true
 php artisan config:clear || true
+php artisan route:clear || true
 php artisan cache:clear || true
+
+echo "Dumping autoload..."
+composer dump-autoload || true
 
 echo "Running migrations..."
 php artisan migrate --force || exit 1
